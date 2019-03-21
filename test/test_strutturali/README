@@ -1,0 +1,24 @@
+STRUCTURAL TESTING ORGANIZATION:
+
+Since the code follows a precise pipeline, and it cannot
+procede to the next step if the preceding one is not successful
+we can conduct the structural testing in the following way:
+we start from the first stage of the pipeline (a function)
+and we test if it works correctly. Once done that, we take the
+case in which the first stage is successful and we test the second stage
+in those cases in which the previous one is successful. We can
+then continue until we reach the end of the pipeline.
+
+In this way we can reach the 100% Branch Coverage (of course this does not 
+cover the internal implementation of Limboole).
+
+For each stage of the pipeline there is a file .cpp called with
+the name of the considered stage and a folder containing all the
+necessary inputs for that stage.
+
+Stages:
+1) read XML file
+2) compute the sequence length of each node
+3) create the state graph
+4) create the CBT plans representation
+5) compute a model of the representation and derive the initial requirements 

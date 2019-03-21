@@ -1,0 +1,3 @@
+In the build folder the objective files are stored. 
+
+To clean the folder use the command: make clean

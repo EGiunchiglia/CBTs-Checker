@@ -1,0 +1,27 @@
+% SATISFIABLE formula (satisfying assignment follows)
+action1_0 = 0
+precondition_0 = 1
+precondition1_0 = 1
+post_1 = 1
+postcondition_1 = 1
+postcondition1_1 = 1
+action1_1 = 1
+precondition_1 = 1
+precondition1_1 = 1
+post_2 = 1
+postcondition_2 = 0
+postcondition1_2 = 1
+action2_0 = 0
+precondition2_0 = 1
+postcondition2_1 = 1
+action2_1 = 1
+precondition2_1 = 1
+postcondition2_2 = 1
+postcondition_0 = 1
+post_0 = 1
+postcondition1_0 = 1
+postcondition2_0 = 1
+condition1_0 = 0
+condition2_0 = 0
+condition1_1 = 0
+condition2_1 = 0

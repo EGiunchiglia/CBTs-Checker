@@ -1,0 +1,26 @@
+
+
+
+<ActionTemplate>
+<YARPAction ID = "Action1">
+<Precondition ID="not Precondition1">
+<Precondition ID="Precondition1">
+<Postcondition ID="Postcondition1">
+</ActionTemplate>
+                
+<ActionTemplate>
+<YARPAction ID = "Action2">
+<Precondition ID="Precondition">
+<Postcondition ID="Postcondition2">
+</ActionTemplate>
+
+
+<root>
+    <BehaviorTree>
+        <Sequence>
+            <YARPCondition ID="Action1"/>
+            <YARPAction ID="Action2"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
+

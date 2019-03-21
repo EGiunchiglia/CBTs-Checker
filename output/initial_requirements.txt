@@ -1,0 +1,13 @@
+ah_0 = 1
+nh_0 = 1
+fb_0 = 1
+rk_0 = 0
+bv_0 = 0
+feb_0 = 1
+bl_0 = 0
+gk_0 = 0
+tb_0 = 1
+test_0 = 1
+bf_0 = 0
+eta_try_0 = 1
+eta_succ_0 = 0

@@ -1,0 +1,9 @@
+<root>
+    <BehaviorTree>
+            <Sequence>
+                <YARPCondition ID="Action1"/>
+                <YARPAction ID="Action2"/>
+            </Sequence>
+    </BehaviorTree>
+</root>
+

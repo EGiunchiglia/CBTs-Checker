@@ -1,0 +1,10 @@
+action1_0 = 0
+precondition11_0 = 1
+precondition12_0 = 1
+action2_0 = 0
+precondition21_0 = 1
+precondition22_0 = 1
+equal_0 = 1
+postcondition1_0 = 1
+postcondition2_0 = 1
+condition1_0 = 1
