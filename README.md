@@ -2,6 +2,11 @@
 
 Given a Conditional Behavior Tree (CBT) this program is able to check its executability.
 
+## TO DO
+
+- add the possibility of additing initial conditions
+- change readme and names of output files 
+
 ## Installation
 
 ### Requirements 
