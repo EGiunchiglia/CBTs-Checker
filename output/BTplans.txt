@@ -1,4 +1,5 @@
-(ah_0 & (!nh_0)) | 
+true & !false &
+((ah_0 & (!nh_0)) | 
 (ah_1 & (!nh_1)) | 
 (ah_2 & (!nh_2)) | 
 (ah_3 & (!nh_3)) | 
@@ -23,6 +24,7 @@
 (tb_2 & (!rk_2 | !bl_2)) | 
 (tb_3 & (!rk_3 | !bl_3)) | 
 (tb_4 & (!rk_4 | !bl_4)) | 
+false) & 
 (ah_0 -> (!test_1)) & 
 (ah_1 -> (!test_2)) & 
 (ah_2 -> (!test_3)) & 
@@ -43,11 +45,31 @@
 (gk_2 -> (rk_3 & bv_3 & !nh_3)) & 
 (gk_3 -> (rk_4 & bv_4 & !nh_4)) & 
 (gk_4 -> (rk_5 & bv_5 & !nh_5)) & 
+(bf_0 & !bf_1 -> (false)) &
+(bf_1 & !bf_2 -> (false)) &
+(bf_2 & !bf_3 -> (false)) &
+(bf_3 & !bf_4 -> (false)) &
+(bf_4 & !bf_5 -> (false)) &
+(bl_0 & !bl_1 -> (false)) &
+(bl_1 & !bl_2 -> (false)) &
+(bl_2 & !bl_3 -> (false)) &
+(bl_3 & !bl_4 -> (false)) &
+(bl_4 & !bl_5 -> (false)) &
+(bv_0 & !bv_1 -> (false)) &
+(bv_1 & !bv_2 -> (false)) &
+(bv_2 & !bv_3 -> (false)) &
+(bv_3 & !bv_4 -> (false)) &
+(bv_4 & !bv_5 -> (false)) &
 (nh_0 & !nh_1 -> (gk_0)) &
 (nh_1 & !nh_2 -> (gk_1)) &
 (nh_2 & !nh_3 -> (gk_2)) &
 (nh_3 & !nh_4 -> (gk_3)) &
 (nh_4 & !nh_5 -> (gk_4)) &
+(rk_0 & !rk_1 -> (false)) &
+(rk_1 & !rk_2 -> (false)) &
+(rk_2 & !rk_3 -> (false)) &
+(rk_3 & !rk_4 -> (false)) &
+(rk_4 & !rk_5 -> (false)) &
 (test_0 & !test_1 -> (ah_0)) &
 (test_1 & !test_2 -> (ah_1)) &
 (test_2 & !test_3 -> (ah_2)) &
@@ -68,9 +90,19 @@
 (!bv_2 & bv_3 -> (gk_2)) &
 (!bv_3 & bv_4 -> (gk_3)) &
 (!bv_4 & bv_5 -> (gk_4)) &
+(!nh_0 & nh_1 -> (false)) &
+(!nh_1 & nh_2 -> (false)) &
+(!nh_2 & nh_3 -> (false)) &
+(!nh_3 & nh_4 -> (false)) &
+(!nh_4 & nh_5 -> (false)) &
 (!rk_0 & rk_1 -> (gk_0)) &
 (!rk_1 & rk_2 -> (gk_1)) &
 (!rk_2 & rk_3 -> (gk_2)) &
 (!rk_3 & rk_4 -> (gk_3)) &
 (!rk_4 & rk_5 -> (gk_4)) &
-(eta_try_0 <-> eta_succ_0) & eta_try_0 & (eta_succ_1 <-> ((eta_succ_2 & !eta_succ_8) | (eta_succ_8 & !eta_succ_2))) & ((eta_try_8 -> !eta_succ_2)) & (eta_succ_2 <-> (eta_succ_3 & eta_succ_4 & eta_succ_5)) & ((eta_try_5 -> eta_succ_4) & (eta_try_4 -> eta_succ_3)) & (eta_succ_3 <-> gk_0) & (!ah_0 & !fb_0 & !feb_0 & !tb_0) & (eta_succ_4 <-> fb_1) & (!ah_1 & !feb_1 & !gk_1 & !tb_1) & (eta_succ_5 <-> (eta_succ_6 & eta_succ_7)) & (eta_try_5 <-> (eta_try_6 | eta_try_7)) & (!ah_2 & !fb_2 & !gk_2) & (eta_succ_6 <-> tb_2) & (eta_succ_7 <-> feb_2) & (eta_succ_8 <-> ah_3) & (!fb_3 & !feb_3 & !gk_3 & !tb_3)
+(!test_0 & test_1 -> (false)) &
+(!test_1 & test_2 -> (false)) &
+(!test_2 & test_3 -> (false)) &
+(!test_3 & test_4 -> (false)) &
+(!test_4 & test_5 -> (false)) &
+(eta_try_0 <-> eta_succ_0) & eta_try_0 & (eta_succ_1 -> eta_try_1) & (eta_succ_1 <-> ((eta_succ_2 & !eta_succ_8) | (eta_succ_8 & !eta_succ_2))) & ((eta_try_8 -> !eta_succ_2)) & (eta_succ_2 -> eta_try_2) & (eta_succ_2 <-> (eta_succ_3 & eta_succ_4 & eta_succ_5)) & ((eta_try_5 -> eta_succ_4) & (eta_try_4 -> eta_succ_3)) & (eta_succ_3 -> eta_try_3) & (eta_succ_3 <-> gk_0) & (!ah_0 & !fb_0 & !feb_0 & !tb_0) & (eta_succ_4 -> eta_try_4) & (eta_succ_4 <-> fb_1) & (!ah_1 & !feb_1 & !gk_1 & !tb_1) & (eta_succ_5 -> eta_try_5) & (eta_succ_5 <-> (eta_succ_6 & eta_succ_7)) & (eta_try_5 <-> (eta_try_6 | eta_try_7)) & (!ah_2 & !fb_2 & !gk_2) & (eta_succ_6 -> eta_try_6) & (eta_succ_6 <-> tb_2) & (eta_succ_7 -> eta_try_7) & (eta_succ_7 <-> feb_2) & (eta_succ_8 -> eta_try_8) & (eta_succ_8 <-> ah_3) & (!fb_3 & !feb_3 & !gk_3 & !tb_3)

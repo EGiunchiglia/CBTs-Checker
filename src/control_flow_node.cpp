@@ -143,7 +143,8 @@ namespace cbt{
         }
         
         if (this->get_type() == sequence){
-	  
+
+	    file << " & (eta_succ_" << this->get_identifier() << " -> " << "eta_try_" << this->get_identifier() << ")";
 	    file << " & (eta_succ_" << this->get_identifier() << " <-> (";
 	    unsigned int j = 0;
             for(auto& c : this->get_children()){
@@ -176,6 +177,7 @@ namespace cbt{
         
         if (this->get_type() == fallback){
 
+	    file << " & (eta_succ_" << this->get_identifier() << " -> " << "eta_try_" << this->get_identifier() << ")";
 	    file << " & (eta_succ_" << this->get_identifier() << " <-> (";
 	    unsigned int i = 0;
             for(auto& c : this->get_children()){
@@ -215,7 +217,7 @@ namespace cbt{
         }
         
         if (this->get_type() == parallel){
-
+          file << " & (eta_succ_" << this->get_identifier() << " -> " << "eta_try_" << this->get_identifier() << ")";
 	  file << " & (eta_succ_"<< this->get_identifier() << " <-> (";
 	  unsigned int j = 0;
 	  for(auto& c : this->get_children()){
@@ -261,51 +263,7 @@ namespace cbt{
                 c->get_plan(current_time, this, file, actions);
           }
 	  return 0;
-	  /*
-            file << "(";
-            std::set<std::string> in_parallel_actions;
-            
-            unsigned int k =0;
-            for(auto& c : this->get_children()){
-                execution_node* ex_node = dynamic_cast<execution_node*>(c);
-                if(ex_node == NULL){
-                    throw std::runtime_error("Input XML file bad format: parallel node children must be execution nodes");
-                }
-                if (k < actions->size()-1)
-                    file << ex_node->get_action_label() << "_" << current_time << " & ";
-                else
-                    file << ex_node->get_action_label() << "_" << current_time;
-                k++;
-                in_parallel_actions.insert(ex_node->get_action_label());
-            }
 	  
-	   
-            
-            std::vector<std::string> parallel_post;
-            unsigned long j = in_parallel_actions.size();
-            for(auto& a : *actions){
-                if(in_parallel_actions.find(a.get_label()) == in_parallel_actions.end()){
-                    if (j < actions->size()-1)
-                        file << "!" << a.get_label() << "_" << current_time << " & ";
-                    else{
-                        file << "!" << a.get_label() << "_" << current_time;
-                    }
-                    j++;
-                }
-                else{
-                    for(auto& post: a.get_post()){
-                        if(post[0] != '!' && std::find(parallel_post.begin(), parallel_post.end(), "!"+post) != parallel_post.end())
-                            throw std::runtime_error("Input XML file bad format: children of parallel node cannot have contrastant post-conditions");
-                        else if (post[0] == '!' && std::find(parallel_post.begin(), parallel_post.end(), post.substr(1)) != parallel_post.end())
-                            throw std::runtime_error("Input XML file bad format: children of parallel node cannot have contrastant post-conditions");
-                        else
-                            parallel_post.push_back(post);
-                    }
-                }
-            }
-            file << "))";
-            return current_time+1;
-	  */
         }
         else
             throw std::runtime_error("Input XML file bad format.");

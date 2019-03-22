@@ -286,11 +286,14 @@ namespace cbt{
         file.open(output_path_bt_plans, std::ios::out);
         if (!file.good())
             throw std::runtime_error("Exception occurred while creating output file for BT plans.");
+
+	//Define true and false symbols
+	file << "true & !false &\n";
         
         
         //Write all the formulas of the state graph of the type:
-        // a_i --> \big_wedge {c_i | c \in Pre}
-        // a_i --> \bigwedge {c_{i+1} | c \in Post}
+        // a_i & \big_wedge {\neg c_i | c \in Pre}
+	file << "(";
         for(auto& a: this->actions_){
             for(int i=0; i < this->max_length_sequence_; i++){
                 
@@ -308,7 +311,10 @@ namespace cbt{
                 }
 	     }
 	 }
+	file << "false) & \n";
 	
+	//Write all the formulas of the state graph of the type:
+        // a_i --> \bigwedge {c_{i+1} | c \in Post}
         for(auto& a: this->actions_){
             for(int i=0; i < this->max_length_sequence_; i++){                   
                 if(a.get_post().size()>0){
@@ -341,8 +347,16 @@ namespace cbt{
                 if (!ret.second){ //it means that the pair with that condition already existed in the map, in that case nothing is inserted
                     ret.first->second.insert(ret.first->second.begin(), action);
                 }
-            }
-        }
+		if(post.substr(0,1).compare("!") == 0){
+		   std::vector<std::string> actions;
+		   ret = formulas.insert(std::pair<std::string, std::vector<std::string>> (post.substr(1), actions));
+                }
+		else{
+		   std::vector<std::string> actions;
+		   ret = formulas.insert(std::pair<std::string, std::vector<std::string>> ("!" + post, actions));
+                }
+	     }
+         }
         
         //Given the map we can write all the formulas
         for (auto& pair: formulas){
@@ -360,6 +374,9 @@ namespace cbt{
                         file << a << "_" << i;
                     j++;
                 }
+		
+		if(pair.second.size() == 0)
+		  file << "false";
                 
                 file << ")) &\n";
             }

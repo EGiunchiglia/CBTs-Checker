@@ -49,13 +49,9 @@ namespace cbt{
     
     
     int execution_node::get_plan(int current_time, task* parent, std::ofstream &file, std::set<action> * const actions){
-                
-        file << " & (";
-	
-        
-	file << "eta_succ_"<< this->get_identifier() << " <-> " << this->get_action_label() << "_" << this->get_ex_time();
 
-	file << ")";
+        file << " & (eta_succ_" << this->get_identifier() << " -> " << "eta_try_" << this->get_identifier() << ")";
+        file << " & (eta_succ_"<< this->get_identifier() << " <-> " << this->get_action_label() << "_" << this->get_ex_time() << ")";
 
 	if (parent->get_type() != parallel){
 	  file << " & (";
