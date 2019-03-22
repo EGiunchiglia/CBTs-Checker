@@ -1,6 +1,6 @@
 # CBT Requirements Calculator
 
-Given a Conditional Behavior Tree (CBT) this program is able to compute the requirements necessary to successfully complete at least one of the plans encoded by the CBT itself.
+Given a Conditional Behavior Tree (CBT) this program is able to check its executability.
 
 ## Installation
 
