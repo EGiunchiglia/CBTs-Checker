@@ -30,7 +30,30 @@
 <ActionTemplate>
 <YARPAction ID = "AH">
 <Precondition ID="nh">
-<Postcondition ID="not test">
+</ActionTemplate>
+
+<ActionTemplate>
+<YARPAction ID = "compute_pre_grasp_pose">
+<Precondition ID="pre_grasp_pose_exists">
+<Postcondition ID="pre_grasp_pose_computed">
+</ActionTemplate>
+
+<ActionTemplate>
+<YARPAction ID = "goto_pre_grasp_pose">
+<Precondition ID="pre_grasp_pose_computed">
+<Postcondition ID="robot_at_grasp_pose">
+</ActionTemplate>
+
+<ActionTemplate>
+<YARPAction ID = "locate_bottle">
+<Precondition ID="bv">
+<Postcondition ID="bottle_located_with_high_confidence">
+</ActionTemplate>
+
+<ActionTemplate>
+<YARPAction ID = "grasp_bottle">
+<Precondition ID="bottle_located_with_high_confidence">
+<Postcondition ID="bf">
 </ActionTemplate>
 
 
@@ -38,6 +61,12 @@
     <BehaviorTree>
         <Fallback>
             <Sequence>
+            	<YARPAction ID="GK"/>
+                <YARPAction ID="FB"/>
+                <Parallel>
+                <YARPAction ID="TB"/>
+                <YARPAction ID="FeB"/>
+                </Parallel>
                 <YARPAction ID="GK"/>
                 <YARPAction ID="FB"/>
                 <Parallel>

@@ -1,0 +1,56 @@
+
+<ActionTemplate>
+<YARPAction ID = "GK">
+<Precondition ID="nh">
+<Postcondition ID="rk">
+<Postcondition ID="bv">
+<Postcondition ID="not nh">
+</ActionTemplate>
+             
+<ActionTemplate>
+<YARPAction ID = "FB">
+<Precondition ID="rk">
+<Precondition ID="bv">
+<Postcondition ID="bl">
+</ActionTemplate>
+
+<ActionTemplate>
+<YARPAction ID = "TB">
+<Precondition ID="rk">
+<Precondition ID="bl">
+</ActionTemplate>
+
+<ActionTemplate>
+<YARPAction ID = "FeB">
+<Precondition ID="rk">
+<Precondition ID="bl">
+<Postcondition ID="bf">
+</ActionTemplate>
+
+<ActionTemplate>
+<YARPAction ID = "AH">
+<Precondition ID="nh">
+</ActionTemplate>
+
+
+<root>
+    <BehaviorTree>
+        <Fallback>
+            <Sequence>
+                <YARPAction ID="FB"/>
+                <Parallel>
+                <YARPAction ID="TB"/>
+                <YARPAction ID="FeB"/>
+                </Parallel>
+                <YARPAction ID="GK"/>
+                <YARPAction ID="FB"/>
+                <Parallel>
+                <YARPAction ID="TB"/>
+                <YARPAction ID="FeB"/>
+                </Parallel>
+            </Sequence>
+            <YARPAction ID="AH"/>
+        </Fallback>
+    </BehaviorTree>
+</root>
+
