@@ -72,24 +72,31 @@ namespace cbt{
         int sequence_length = 0;
 	this->identifier_ = id;
 
-        
-        if(this->get_type()==sequence){
+        if(this->get_type()==parallel){
+            for(auto& child: this->get_children()){
+	        std::tuple <int, int> dummy = child->compute_node_params(id+1);
+		id = std::get<1>(dummy);
+            }
+	    sequence_length = 1;
+        }
+        else{
             for(auto& child: this->get_children()){
 	        std::tuple <int, int> dummy = child->compute_node_params(id+1);
                 sequence_length += std::get<0>(dummy);
 		id = std::get<1>(dummy);
             }
         }
+	/*
         else{
             int current_sequence_length = 0;
             for (auto& child: this->get_children()){
 	        std::tuple <int, int> dummy = child->compute_node_params(id+1);
-                current_sequence_length += std::get<0>(dummy);
+                current_sequence_length = std::get<0>(dummy);
 		id = std::get<1>(dummy);
                 if(current_sequence_length > sequence_length)
                     sequence_length = current_sequence_length;
             }
-        }
+	    }*/
         this->sequence_length_ = sequence_length;
         return  std::make_tuple(sequence_length, id);
     };

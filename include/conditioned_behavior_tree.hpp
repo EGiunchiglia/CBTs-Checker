@@ -71,7 +71,7 @@ namespace cbt{
          * Function to write the state graph to the output file.
          * \param path string containing the path to the output folder
          */
-        void create_state_graph(std::string const path);
+        void create_state_graph(std::string const path, std::string const req_path);
         
         /**
          * Function to write the plans of the CBT to the output file.
@@ -92,10 +92,13 @@ namespace cbt{
         /**
          * Function handling the pipeline of function calls to compute the requirements.
          * \param input_path string containing the path to the input .xml file
+         * \param req_path string containing the path to the input .txt file with the initial requirements
          * \param output_folder string containing the path to the output folder
          * \param limboole_path string containing the path to the limboole executable
          */
-        void compute_initial_requirements(std::string const input_path, std::string const output_folder, std::string const limboole_path);
+      void compute_initial_requirements(std::string const input_path,std::string const req_path, std::string const output_folder, std::string const limboole_path);
+
+
 
     private:
         

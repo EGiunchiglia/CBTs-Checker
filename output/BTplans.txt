@@ -1,108 +1,196 @@
 true & !false &
+!nh_0 & !rk_0 & !bv_0 & !bl_0 & !bf_0  &
 ((ah_0 & (!nh_0)) | 
 (ah_1 & (!nh_1)) | 
 (ah_2 & (!nh_2)) | 
 (ah_3 & (!nh_3)) | 
 (ah_4 & (!nh_4)) | 
+(ah_5 & (!nh_5)) | 
+(compute_pre_grasp_pose_0 & (!pre_grasp_pose_exists_0)) | 
+(compute_pre_grasp_pose_1 & (!pre_grasp_pose_exists_1)) | 
+(compute_pre_grasp_pose_2 & (!pre_grasp_pose_exists_2)) | 
+(compute_pre_grasp_pose_3 & (!pre_grasp_pose_exists_3)) | 
+(compute_pre_grasp_pose_4 & (!pre_grasp_pose_exists_4)) | 
+(compute_pre_grasp_pose_5 & (!pre_grasp_pose_exists_5)) | 
 (fb_0 & (!rk_0 | !bv_0)) | 
 (fb_1 & (!rk_1 | !bv_1)) | 
 (fb_2 & (!rk_2 | !bv_2)) | 
 (fb_3 & (!rk_3 | !bv_3)) | 
 (fb_4 & (!rk_4 | !bv_4)) | 
+(fb_5 & (!rk_5 | !bv_5)) | 
 (feb_0 & (!rk_0 | !bl_0)) | 
 (feb_1 & (!rk_1 | !bl_1)) | 
 (feb_2 & (!rk_2 | !bl_2)) | 
 (feb_3 & (!rk_3 | !bl_3)) | 
 (feb_4 & (!rk_4 | !bl_4)) | 
+(feb_5 & (!rk_5 | !bl_5)) | 
 (gk_0 & (!nh_0)) | 
 (gk_1 & (!nh_1)) | 
 (gk_2 & (!nh_2)) | 
 (gk_3 & (!nh_3)) | 
 (gk_4 & (!nh_4)) | 
+(gk_5 & (!nh_5)) | 
+(goto_pre_grasp_pose_0 & (!pre_grasp_pose_computed_0)) | 
+(goto_pre_grasp_pose_1 & (!pre_grasp_pose_computed_1)) | 
+(goto_pre_grasp_pose_2 & (!pre_grasp_pose_computed_2)) | 
+(goto_pre_grasp_pose_3 & (!pre_grasp_pose_computed_3)) | 
+(goto_pre_grasp_pose_4 & (!pre_grasp_pose_computed_4)) | 
+(goto_pre_grasp_pose_5 & (!pre_grasp_pose_computed_5)) | 
+(grasp_bottle_0 & (!bottle_located_with_high_confidence_0)) | 
+(grasp_bottle_1 & (!bottle_located_with_high_confidence_1)) | 
+(grasp_bottle_2 & (!bottle_located_with_high_confidence_2)) | 
+(grasp_bottle_3 & (!bottle_located_with_high_confidence_3)) | 
+(grasp_bottle_4 & (!bottle_located_with_high_confidence_4)) | 
+(grasp_bottle_5 & (!bottle_located_with_high_confidence_5)) | 
+(locate_bottle_0 & (!bv_0)) | 
+(locate_bottle_1 & (!bv_1)) | 
+(locate_bottle_2 & (!bv_2)) | 
+(locate_bottle_3 & (!bv_3)) | 
+(locate_bottle_4 & (!bv_4)) | 
+(locate_bottle_5 & (!bv_5)) | 
 (tb_0 & (!rk_0 | !bl_0)) | 
 (tb_1 & (!rk_1 | !bl_1)) | 
 (tb_2 & (!rk_2 | !bl_2)) | 
 (tb_3 & (!rk_3 | !bl_3)) | 
 (tb_4 & (!rk_4 | !bl_4)) | 
+(tb_5 & (!rk_5 | !bl_5)) | 
 false) & 
-(ah_0 -> (!test_1)) & 
-(ah_1 -> (!test_2)) & 
-(ah_2 -> (!test_3)) & 
-(ah_3 -> (!test_4)) & 
-(ah_4 -> (!test_5)) & 
+(compute_pre_grasp_pose_0 -> (pre_grasp_pose_computed_1)) & 
+(compute_pre_grasp_pose_1 -> (pre_grasp_pose_computed_2)) & 
+(compute_pre_grasp_pose_2 -> (pre_grasp_pose_computed_3)) & 
+(compute_pre_grasp_pose_3 -> (pre_grasp_pose_computed_4)) & 
+(compute_pre_grasp_pose_4 -> (pre_grasp_pose_computed_5)) & 
+(compute_pre_grasp_pose_5 -> (pre_grasp_pose_computed_6)) & 
 (fb_0 -> (bl_1)) & 
 (fb_1 -> (bl_2)) & 
 (fb_2 -> (bl_3)) & 
 (fb_3 -> (bl_4)) & 
 (fb_4 -> (bl_5)) & 
+(fb_5 -> (bl_6)) & 
 (feb_0 -> (bf_1)) & 
 (feb_1 -> (bf_2)) & 
 (feb_2 -> (bf_3)) & 
 (feb_3 -> (bf_4)) & 
 (feb_4 -> (bf_5)) & 
+(feb_5 -> (bf_6)) & 
 (gk_0 -> (rk_1 & bv_1 & !nh_1)) & 
 (gk_1 -> (rk_2 & bv_2 & !nh_2)) & 
 (gk_2 -> (rk_3 & bv_3 & !nh_3)) & 
 (gk_3 -> (rk_4 & bv_4 & !nh_4)) & 
 (gk_4 -> (rk_5 & bv_5 & !nh_5)) & 
+(gk_5 -> (rk_6 & bv_6 & !nh_6)) & 
+(goto_pre_grasp_pose_0 -> (robot_at_grasp_pose_1)) & 
+(goto_pre_grasp_pose_1 -> (robot_at_grasp_pose_2)) & 
+(goto_pre_grasp_pose_2 -> (robot_at_grasp_pose_3)) & 
+(goto_pre_grasp_pose_3 -> (robot_at_grasp_pose_4)) & 
+(goto_pre_grasp_pose_4 -> (robot_at_grasp_pose_5)) & 
+(goto_pre_grasp_pose_5 -> (robot_at_grasp_pose_6)) & 
+(grasp_bottle_0 -> (bf_1)) & 
+(grasp_bottle_1 -> (bf_2)) & 
+(grasp_bottle_2 -> (bf_3)) & 
+(grasp_bottle_3 -> (bf_4)) & 
+(grasp_bottle_4 -> (bf_5)) & 
+(grasp_bottle_5 -> (bf_6)) & 
+(locate_bottle_0 -> (bottle_located_with_high_confidence_1)) & 
+(locate_bottle_1 -> (bottle_located_with_high_confidence_2)) & 
+(locate_bottle_2 -> (bottle_located_with_high_confidence_3)) & 
+(locate_bottle_3 -> (bottle_located_with_high_confidence_4)) & 
+(locate_bottle_4 -> (bottle_located_with_high_confidence_5)) & 
+(locate_bottle_5 -> (bottle_located_with_high_confidence_6)) & 
 (bf_0 & !bf_1 -> (false)) &
 (bf_1 & !bf_2 -> (false)) &
 (bf_2 & !bf_3 -> (false)) &
 (bf_3 & !bf_4 -> (false)) &
 (bf_4 & !bf_5 -> (false)) &
+(bf_5 & !bf_6 -> (false)) &
 (bl_0 & !bl_1 -> (false)) &
 (bl_1 & !bl_2 -> (false)) &
 (bl_2 & !bl_3 -> (false)) &
 (bl_3 & !bl_4 -> (false)) &
 (bl_4 & !bl_5 -> (false)) &
+(bl_5 & !bl_6 -> (false)) &
+(bottle_located_with_high_confidence_0 & !bottle_located_with_high_confidence_1 -> (false)) &
+(bottle_located_with_high_confidence_1 & !bottle_located_with_high_confidence_2 -> (false)) &
+(bottle_located_with_high_confidence_2 & !bottle_located_with_high_confidence_3 -> (false)) &
+(bottle_located_with_high_confidence_3 & !bottle_located_with_high_confidence_4 -> (false)) &
+(bottle_located_with_high_confidence_4 & !bottle_located_with_high_confidence_5 -> (false)) &
+(bottle_located_with_high_confidence_5 & !bottle_located_with_high_confidence_6 -> (false)) &
 (bv_0 & !bv_1 -> (false)) &
 (bv_1 & !bv_2 -> (false)) &
 (bv_2 & !bv_3 -> (false)) &
 (bv_3 & !bv_4 -> (false)) &
 (bv_4 & !bv_5 -> (false)) &
+(bv_5 & !bv_6 -> (false)) &
 (nh_0 & !nh_1 -> (gk_0)) &
 (nh_1 & !nh_2 -> (gk_1)) &
 (nh_2 & !nh_3 -> (gk_2)) &
 (nh_3 & !nh_4 -> (gk_3)) &
 (nh_4 & !nh_5 -> (gk_4)) &
+(nh_5 & !nh_6 -> (gk_5)) &
+(pre_grasp_pose_computed_0 & !pre_grasp_pose_computed_1 -> (false)) &
+(pre_grasp_pose_computed_1 & !pre_grasp_pose_computed_2 -> (false)) &
+(pre_grasp_pose_computed_2 & !pre_grasp_pose_computed_3 -> (false)) &
+(pre_grasp_pose_computed_3 & !pre_grasp_pose_computed_4 -> (false)) &
+(pre_grasp_pose_computed_4 & !pre_grasp_pose_computed_5 -> (false)) &
+(pre_grasp_pose_computed_5 & !pre_grasp_pose_computed_6 -> (false)) &
 (rk_0 & !rk_1 -> (false)) &
 (rk_1 & !rk_2 -> (false)) &
 (rk_2 & !rk_3 -> (false)) &
 (rk_3 & !rk_4 -> (false)) &
 (rk_4 & !rk_5 -> (false)) &
-(test_0 & !test_1 -> (ah_0)) &
-(test_1 & !test_2 -> (ah_1)) &
-(test_2 & !test_3 -> (ah_2)) &
-(test_3 & !test_4 -> (ah_3)) &
-(test_4 & !test_5 -> (ah_4)) &
-(!bf_0 & bf_1 -> (feb_0)) &
-(!bf_1 & bf_2 -> (feb_1)) &
-(!bf_2 & bf_3 -> (feb_2)) &
-(!bf_3 & bf_4 -> (feb_3)) &
-(!bf_4 & bf_5 -> (feb_4)) &
+(rk_5 & !rk_6 -> (false)) &
+(robot_at_grasp_pose_0 & !robot_at_grasp_pose_1 -> (false)) &
+(robot_at_grasp_pose_1 & !robot_at_grasp_pose_2 -> (false)) &
+(robot_at_grasp_pose_2 & !robot_at_grasp_pose_3 -> (false)) &
+(robot_at_grasp_pose_3 & !robot_at_grasp_pose_4 -> (false)) &
+(robot_at_grasp_pose_4 & !robot_at_grasp_pose_5 -> (false)) &
+(robot_at_grasp_pose_5 & !robot_at_grasp_pose_6 -> (false)) &
+(!bf_0 & bf_1 -> (grasp_bottle_0 | feb_0)) &
+(!bf_1 & bf_2 -> (grasp_bottle_1 | feb_1)) &
+(!bf_2 & bf_3 -> (grasp_bottle_2 | feb_2)) &
+(!bf_3 & bf_4 -> (grasp_bottle_3 | feb_3)) &
+(!bf_4 & bf_5 -> (grasp_bottle_4 | feb_4)) &
+(!bf_5 & bf_6 -> (grasp_bottle_5 | feb_5)) &
 (!bl_0 & bl_1 -> (fb_0)) &
 (!bl_1 & bl_2 -> (fb_1)) &
 (!bl_2 & bl_3 -> (fb_2)) &
 (!bl_3 & bl_4 -> (fb_3)) &
 (!bl_4 & bl_5 -> (fb_4)) &
+(!bl_5 & bl_6 -> (fb_5)) &
+(!bottle_located_with_high_confidence_0 & bottle_located_with_high_confidence_1 -> (locate_bottle_0)) &
+(!bottle_located_with_high_confidence_1 & bottle_located_with_high_confidence_2 -> (locate_bottle_1)) &
+(!bottle_located_with_high_confidence_2 & bottle_located_with_high_confidence_3 -> (locate_bottle_2)) &
+(!bottle_located_with_high_confidence_3 & bottle_located_with_high_confidence_4 -> (locate_bottle_3)) &
+(!bottle_located_with_high_confidence_4 & bottle_located_with_high_confidence_5 -> (locate_bottle_4)) &
+(!bottle_located_with_high_confidence_5 & bottle_located_with_high_confidence_6 -> (locate_bottle_5)) &
 (!bv_0 & bv_1 -> (gk_0)) &
 (!bv_1 & bv_2 -> (gk_1)) &
 (!bv_2 & bv_3 -> (gk_2)) &
 (!bv_3 & bv_4 -> (gk_3)) &
 (!bv_4 & bv_5 -> (gk_4)) &
+(!bv_5 & bv_6 -> (gk_5)) &
 (!nh_0 & nh_1 -> (false)) &
 (!nh_1 & nh_2 -> (false)) &
 (!nh_2 & nh_3 -> (false)) &
 (!nh_3 & nh_4 -> (false)) &
 (!nh_4 & nh_5 -> (false)) &
+(!nh_5 & nh_6 -> (false)) &
+(!pre_grasp_pose_computed_0 & pre_grasp_pose_computed_1 -> (compute_pre_grasp_pose_0)) &
+(!pre_grasp_pose_computed_1 & pre_grasp_pose_computed_2 -> (compute_pre_grasp_pose_1)) &
+(!pre_grasp_pose_computed_2 & pre_grasp_pose_computed_3 -> (compute_pre_grasp_pose_2)) &
+(!pre_grasp_pose_computed_3 & pre_grasp_pose_computed_4 -> (compute_pre_grasp_pose_3)) &
+(!pre_grasp_pose_computed_4 & pre_grasp_pose_computed_5 -> (compute_pre_grasp_pose_4)) &
+(!pre_grasp_pose_computed_5 & pre_grasp_pose_computed_6 -> (compute_pre_grasp_pose_5)) &
 (!rk_0 & rk_1 -> (gk_0)) &
 (!rk_1 & rk_2 -> (gk_1)) &
 (!rk_2 & rk_3 -> (gk_2)) &
 (!rk_3 & rk_4 -> (gk_3)) &
 (!rk_4 & rk_5 -> (gk_4)) &
-(!test_0 & test_1 -> (false)) &
-(!test_1 & test_2 -> (false)) &
-(!test_2 & test_3 -> (false)) &
-(!test_3 & test_4 -> (false)) &
-(!test_4 & test_5 -> (false)) &
-(eta_try_0 <-> eta_succ_0) & eta_try_0 & (eta_succ_1 -> eta_try_1) & (eta_succ_1 <-> ((eta_succ_2 & !eta_succ_8) | (eta_succ_8 & !eta_succ_2))) & ((eta_try_8 -> !eta_succ_2)) & (eta_succ_2 -> eta_try_2) & (eta_succ_2 <-> (eta_succ_3 & eta_succ_4 & eta_succ_5)) & ((eta_try_5 -> eta_succ_4) & (eta_try_4 -> eta_succ_3)) & (eta_succ_3 -> eta_try_3) & (eta_succ_3 <-> gk_0) & (!ah_0 & !fb_0 & !feb_0 & !tb_0) & (eta_succ_4 -> eta_try_4) & (eta_succ_4 <-> fb_1) & (!ah_1 & !feb_1 & !gk_1 & !tb_1) & (eta_succ_5 -> eta_try_5) & (eta_succ_5 <-> (eta_succ_6 & eta_succ_7)) & (eta_try_5 <-> (eta_try_6 | eta_try_7)) & (!ah_2 & !fb_2 & !gk_2) & (eta_succ_6 -> eta_try_6) & (eta_succ_6 <-> tb_2) & (eta_succ_7 -> eta_try_7) & (eta_succ_7 <-> feb_2) & (eta_succ_8 -> eta_try_8) & (eta_succ_8 <-> ah_3) & (!fb_3 & !feb_3 & !gk_3 & !tb_3)
+(!rk_5 & rk_6 -> (gk_5)) &
+(!robot_at_grasp_pose_0 & robot_at_grasp_pose_1 -> (goto_pre_grasp_pose_0)) &
+(!robot_at_grasp_pose_1 & robot_at_grasp_pose_2 -> (goto_pre_grasp_pose_1)) &
+(!robot_at_grasp_pose_2 & robot_at_grasp_pose_3 -> (goto_pre_grasp_pose_2)) &
+(!robot_at_grasp_pose_3 & robot_at_grasp_pose_4 -> (goto_pre_grasp_pose_3)) &
+(!robot_at_grasp_pose_4 & robot_at_grasp_pose_5 -> (goto_pre_grasp_pose_4)) &
+(!robot_at_grasp_pose_5 & robot_at_grasp_pose_6 -> (goto_pre_grasp_pose_5)) &
+(eta_try_0 <-> eta_succ_0) & eta_try_0 & (eta_succ_1 -> eta_try_1) & (eta_succ_1 <-> ((eta_succ_2 & !eta_succ_12) | (eta_succ_12 & !eta_succ_2))) & ((eta_try_12 -> !eta_succ_2)) & (eta_succ_2 -> eta_try_2) & (eta_succ_2 <-> (eta_succ_3 & eta_succ_4 & eta_succ_7 & eta_succ_8 & eta_succ_9)) & ((eta_try_9 -> eta_succ_8) & (eta_try_8 -> eta_succ_7) & (eta_try_7 -> eta_succ_4) & (eta_try_4 -> eta_succ_3)) & (eta_succ_3 -> eta_try_3) & (eta_succ_3 <-> fb_0) & (!ah_0 & !compute_pre_grasp_pose_0 & !feb_0 & !gk_0 & !goto_pre_grasp_pose_0 & !grasp_bottle_0 & !locate_bottle_0 & !tb_0) & (eta_succ_4 -> eta_try_4) & (eta_succ_4 <-> (eta_succ_5 & eta_succ_6)) & (eta_try_4 <-> (eta_try_5 | eta_try_6)) & (!ah_1 & !compute_pre_grasp_pose_1 & !fb_1 & !gk_1 & !goto_pre_grasp_pose_1 & !grasp_bottle_1 & !locate_bottle_1) & (eta_succ_5 -> eta_try_5) & (eta_succ_5 <-> tb_1) & (eta_succ_6 -> eta_try_6) & (eta_succ_6 <-> feb_1) & (eta_succ_7 -> eta_try_7) & (eta_succ_7 <-> gk_2) & (!ah_2 & !compute_pre_grasp_pose_2 & !fb_2 & !feb_2 & !goto_pre_grasp_pose_2 & !grasp_bottle_2 & !locate_bottle_2 & !tb_2) & (eta_succ_8 -> eta_try_8) & (eta_succ_8 <-> fb_3) & (!ah_3 & !compute_pre_grasp_pose_3 & !feb_3 & !gk_3 & !goto_pre_grasp_pose_3 & !grasp_bottle_3 & !locate_bottle_3 & !tb_3) & (eta_succ_9 -> eta_try_9) & (eta_succ_9 <-> (eta_succ_10 & eta_succ_11)) & (eta_try_9 <-> (eta_try_10 | eta_try_11)) & (!ah_4 & !compute_pre_grasp_pose_4 & !fb_4 & !gk_4 & !goto_pre_grasp_pose_4 & !grasp_bottle_4 & !locate_bottle_4) & (eta_succ_10 -> eta_try_10) & (eta_succ_10 <-> tb_4) & (eta_succ_11 -> eta_try_11) & (eta_succ_11 <-> feb_4) & (eta_succ_12 -> eta_try_12) & (eta_succ_12 <-> ah_5) & (!compute_pre_grasp_pose_5 & !fb_5 & !feb_5 & !gk_5 & !goto_pre_grasp_pose_5 & !grasp_bottle_5 & !locate_bottle_5 & !tb_5)

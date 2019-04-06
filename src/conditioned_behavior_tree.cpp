@@ -276,21 +276,41 @@ namespace cbt{
      };
   
     
-    void conditioned_behavior_tree::create_state_graph(std::string const output_folder){
+   void conditioned_behavior_tree::create_state_graph(std::string const output_folder, std::string const req_path){
+
+        //Open the output file
         std::ofstream file;
         file.exceptions (std::ofstream::failbit | std::ofstream::badbit );
 
         std::string output_path_bt_plans = output_folder + name_path_bt_plans;
-        
  
         file.open(output_path_bt_plans, std::ios::out);
         if (!file.good())
-            throw std::runtime_error("Exception occurred while creating output file for BT plans.");
+            throw std::runtime_error("Exception occurred while creating output file for BT plans.");	
 
 	//Define true and false symbols
 	file << "true & !false &\n";
-        
-        
+
+
+	//Open the input file with the requirements
+	std::ifstream req_file;
+        req_file.open(req_path);
+        if (!req_file.good())
+            throw std::runtime_error("Exception occurred while opening the file: input txt file with initial requirements not found.");
+
+	std::string line = "";
+        bool end_file = false;
+        while(line.length() == 0 and !end_file){
+            if(!req_file.eof()) {
+                std::getline(req_file >> std::ws,line);
+            }
+            else
+                end_file = true;
+	    file << line;
+        }
+	
+	file << " &\n";
+               
         //Write all the formulas of the state graph of the type:
         // a_i & \big_wedge {\neg c_i | c \in Pre}
 	file << "(";
@@ -421,17 +441,17 @@ namespace cbt{
     }
     
     //Function handling the pipeline of the functions to call
-    void conditioned_behavior_tree::compute_initial_requirements(std::string const input_path, std::string const output_folder, std::string const limboole_path){
+    void conditioned_behavior_tree::compute_initial_requirements(std::string const input_path, std::string const input_req, std::string const output_folder, std::string const limboole_path){
         this->read_file(input_path);
         this->compute_length_sequences();
 	this->compute_ex_times();
-        this->create_state_graph(output_folder);
+        this->create_state_graph(output_folder, input_req);
         this->create_CBT_plan(output_folder);
         
         std::string output_path_bt_plans = output_folder + name_path_bt_plans;
         std::string output_path_gen_req = output_folder + name_path_gen_req;
         
-        std::string init_req_path = output_folder + "initial_requirements.txt";
+        //std::string init_req_path = output_folder + "initial_requirements.txt";
         std::string command_string = limboole_path + " -s " + output_path_bt_plans + ">> " + output_path_gen_req;
         
         //If file already exixts remove such file
@@ -441,21 +461,10 @@ namespace cbt{
         execute_program(command_string);
         
         std::ifstream general_requirements;
-        std::ofstream initial_requirements;
      
         general_requirements.open(output_path_gen_req);
-        initial_requirements.open(init_req_path, std::ios::out);
         
-
-        std::string line;
-        while(getline(general_requirements, line)){
-            if (line[line.size()-5] == '0'){
-                initial_requirements << line << std::endl;
-            }
-        }
-
         general_requirements.close();
-        initial_requirements.close();
         
     };
     
